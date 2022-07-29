@@ -11,8 +11,16 @@ class Busquedas {
         
         try {
             // peticion HTTP
-            const resp = await axios.get('https://reqres.in/api/users?page=2')
-            console.log(resp.data)
+/*
+            //No funciona porque no tiene parametros
+            const instance = axios.create({
+              baseURL: `https://restcountries.com/v3.1/${lugar}/`  
+            });
+
+            const resp = await instance.get() */
+            const resp = await axios.get(`https://restcountries.com/v3.1/name/${lugar}`)
+            console.log(resp)
+            console.log('hola!')
             
             return []; //Retorna las ciudades que coinciden
         } catch (error) {
