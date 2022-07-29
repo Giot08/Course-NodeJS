@@ -19,10 +19,9 @@ class Busquedas {
 
             const resp = await instance.get() */
       //En su lugar uso la api de restcountries
-      const resp = await axios.get(`${api}${lugar}`);
+      const resp = await axios.get(`${api}${lugar.toLowerCase()}`);
       //   const resp = await axios.get(`${api}${lugar}`);
-      console.log(api);
-      console.log(resp.data);
+      console.log(resp.data[0]);
 
       return []; //Retorna las ciudades que coinciden
     } catch (error) {
