@@ -17,8 +17,10 @@ const main = async () => {
     switch(opt){
       case 1: 
       //mostrar mensaje
-      const lugar = await leerInput('Ciudad: ');
-      await busquedas.ciudad(lugar)
+      const pais = await leerInput('Pais: ');
+      const paisEncontrado = await busquedas.pais(pais);
+      console.log(paisEncontrado);
+      
       // buscar el lugar
       // seleccionar el lugar
       // obtener datos del clima

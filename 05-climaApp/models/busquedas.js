@@ -6,7 +6,7 @@ class Busquedas {
   constructor() {
     //Leer db
   }
-  async ciudad(lugar = "") {
+  async pais(lugar = "") {
     const api = process.env.API_KEY;
 
     try {
@@ -21,9 +21,16 @@ class Busquedas {
       //En su lugar uso la api de restcountries
       const resp = await axios.get(`${api}${lugar.toLowerCase()}`);
       //   const resp = await axios.get(`${api}${lugar}`);
-      console.log(resp.data[0]);
 
-      return []; //Retorna las ciudades que coinciden
+      // console.log(resp.data[0]);
+      return resp.data[0].map(lugar => ({
+        nombre: lugar.name.official,
+        lng: lugar.latlng[1],
+        lat: lugar.latlng[0],
+        codigo: lugar.cca3,
+      }));
+
+      //Retorna las ciudades que coinciden
     } catch (error) {
       return;
     }
