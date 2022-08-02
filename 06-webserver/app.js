@@ -1,10 +1,12 @@
 const express = require("express");
-const app = express();
+require('dotenv').config(); //cargando el dotenv
+
 
 // Serving static files
-app.use(express.static("public"));
+const app = express();
+const port = process.env.PORT;
 
-const port = 8080;
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
