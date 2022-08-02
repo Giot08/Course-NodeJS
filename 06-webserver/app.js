@@ -1,34 +1,19 @@
-const http = require("http");
-const { stringify } = require("querystring");
+const express = require("express");
+const app = express();
 
-//const server =
-http
-  .createServer((req, res) => {
+// Serving static files
+app.use(express.static("public"));
 
-    const error = {
-        tipo: "error",
-        nro: 404,
-        mensaje: "Pagina no encontrada"
-    }
-    
+const port = 8080;
 
-    
-    // res.writeHead(200, {'Content-Type': 'text/plain'});
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
-    res.setHeader('Content-Disposition', 'attachment; filename=archivo.csv');
-    res.writeHead(200, {'Content-Type': 'application/csv'}); //para descargar archivos
-    /*
-    res.writeHead(200, {'Content-Type': 'application/json'});
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/public/404.html");
+});
 
-    res.write(JSON.stringify(error)); */
-    res.write('id, Nombre\n')
-    res.write('1, maria\n')
-    res.write('2, jose\n')
-    res.write('3, fran\n')
-
-
-    res.end();
-  })
-  .listen(8080);
-
-console.log("listening server 8080");
+app.listen(port, () => {
+  console.log(`Example app listening on port:${port}`);
+});
