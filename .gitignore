@@ -5,16 +5,12 @@
 /04-Aplicacion de consola - original/node_modules
 
 /05-climaApp/node_modules
-/05-climaApp/.env
 
 /05-climaApp - original/node_modules
-/05-climaApp - original/.env
 
 /06-webserver/node_modules
-/06-webserver/.env
 
 /06-webserver-original/node_modules
-/06-webserver-original/.env
 
 /07-restserver/node_modules
-/07-restserver/.env
+# /07-restserver/.env
