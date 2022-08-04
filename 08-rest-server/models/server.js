@@ -16,8 +16,12 @@ class Server {
   //   funciones de la clase
 
   middleware() {
+
     // Cors
     this.app.use(cors());
+
+    // Parseo y lectura
+    this.app.use(express.json());
 
     // Directorio pub
     this.app.use(express.static("public"));

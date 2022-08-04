@@ -13,22 +13,24 @@ const usuariosPut = (req, res) => {
 };
 
 const usuariosPost = (req, res) => {
+
+    const {nombre, edad} = req.body;
+
   res.json({
-    ok: true,
     msg: "post api - controlador",
+    nombre,
+    edad
   });
 };
 
 const usuariosDelete = (req, res) => {
   res.json({
-    ok: true,
     msg: "delete api - controlador",
   });
 };
 
 const usuariosPatch = (req, res) => {
   res.json({
-    ok: true,
     msg: "patch api - controlador",
   });
 };
