@@ -29,14 +29,14 @@ class Server {
     });
 
     this.app.put("/api", (req, res) => {
-      res.json({
+      res.status(400).json({
         ok: true,
         msg: 'put api'
       });
     });
 
     this.app.post("/api", (req, res) => {
-      res.json({
+      res.status(201).json({
         ok: true,
         msg: 'post api'
       });
