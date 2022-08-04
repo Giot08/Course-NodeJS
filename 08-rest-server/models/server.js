@@ -49,6 +49,13 @@ class Server {
       });
     });
 
+    this.app.patch("/api", (req, res) => {
+      res.json({
+        ok: true,
+        msg: 'patch api'
+      });
+    });
+
 
   }
   listen() {
