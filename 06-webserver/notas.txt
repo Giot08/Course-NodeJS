@@ -1,2 +1,0 @@
-El handlebar usa el {{ exampleVar }} para usar template, en caso 
-de hacer webs sencillas sin usar algun framework de front Javascript

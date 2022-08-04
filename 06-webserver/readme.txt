@@ -1,1 +1,0 @@
-Link of project: https://webserver-giot.herokuapp.com/
