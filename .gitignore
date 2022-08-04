@@ -6,7 +6,7 @@
 /06-climaApp/node_modules
 /06-climaApp/.env
 
-/07-webserver/node_modules
-/07-webserver/.env
+/07-web-server/node_modules
+/07-web-server/.env
 
 /08-REST-server/node_modules
