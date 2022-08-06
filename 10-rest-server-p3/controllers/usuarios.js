@@ -70,14 +70,12 @@ const usuariosPost = async (req, res) => {
 const usuariosDelete = async (req, res) => {
   const { id } = req.params;
 
-  const uid = req.uid;
-
   // Lo borramos totralmente
   // const usuario = await Usuario.findByIdAndDelete(id); // Lo borra de la db
 
   const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 
-  res.json({usuario, uid});
+  res.json(usuario);
 };
 
 const usuariosPatch = (req, res) => {
