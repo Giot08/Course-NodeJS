@@ -14,9 +14,8 @@ const login = async (req, res = response) => {
       return res.status(404).json({
         msg: "Usuario / Password no son correctos",
       });
-    }   
-    
-    
+    }
+
     // Ver si el usuario esta activo actualmente
     if (!usuario.estado) {
       return res.status(404).json({
@@ -32,14 +31,13 @@ const login = async (req, res = response) => {
       });
     }
 
-
     // Generar el JWT
 
     const token = await generarJWT(usuario.id);
 
     res.json({
       usuario,
-      token
+      token,
     });
   } catch (error) {
     console.log(error);
@@ -49,6 +47,16 @@ const login = async (req, res = response) => {
   }
 };
 
+const googleSignIn = async (req, res = response) => {
+  const { id_token } = req.body;
+
+  res.json({
+    msg: "todo ok",
+    id_token,
+  });
+};
+
 module.exports = {
   login,
+  googleSignIn,
 };
