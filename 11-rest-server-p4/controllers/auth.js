@@ -52,12 +52,35 @@ const googleSignIn = async (req, res = response) => {
   const { id_token } = req.body;
 
   try {
-    const googleUser = await googleverify(id_token);
-    console.log(googleUser);
+    const { correo, email, img } = await googleverify(id_token);
+    // console.log(googleUser);
+
+    let usuario = await Usuario.findOne({ correo });
+
+    if (!usuario) {
+      const data = {
+        nombre,
+        correo,
+        password: "",
+        email,
+        google: true,
+      };
+
+      usuario = new Usuario(data);
+      await usuario.save();
+    }
+
+    if (!usuario.estado) {
+      return res.status(404).json({
+        msg: "contacte con el administrador, usuario bloqueado",
+      });
+    }
+
+    const token = await generarJWT(usuario.id);
 
     res.json({
-      msg: "todo ok",
-      id_token,
+      usuario,
+      token,
     });
   } catch (error) {
     json.status(400).json({
